@@ -1,0 +1,73 @@
+{% load static compress %}
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/css/uikit.min.css" />
+  {% compress css %}
+  <link rel="stylesheet" type="text/x-scss" href="{% static 'projects/styles/main.scss' %}" />
+  {% endcompress %}
+  {% block head %}{% endblock %}
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title%}{% endblock %} | Rory Hayford</title>
+  </head>
+  <body>
+    <div>
+      <nav class="uk-background-secondary" uk-navbar>
+        <div id="top-nav" class="uk-navbar-left uk-light">
+          <ul class="uk-navbar-nav">
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="uk-navbar-right">
+          <a class="uk-navbar-toggle uk-navbar-item uk-hidden@m uk-visible@s" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
+        </div>
+      </nav>
+      <div id="left-nav" class="uk-light uk-visible@l">
+        <div class="content-box">
+          <div class="title">Rory Tyler Hayford</div>
+          <small class="uk-text-muted">Full-stack web developer</small>
+          <hr>
+          <ul class="uk-nav uk-nav-default">
+            <li>
+              <div class="icon-row">
+                <a href="https://gitlab.com/ngua" target="_blank"><i class="fab fa-2x fa-gitlab"></i></a>
+                <a href="mailto:rory.hayford@protonmail.com"><i class="fas fa-2x fa-envelope"></i></a>
+              </div>
+            </li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="offcanvas-nav" data-uk-offcanvas="flip: true; overlay: true" class="uk-offcanvas">
+        <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
+          <button class="uk-offcanvas-close" type="button" uk-close></button>
+          </button>
+          <ul class="uk-nav uk-nav-default">
+              <a href="{% url 'index' %}">
+                <span class="uk-icon" data-uk-icon="icon: home"></span>
+              </a>
+            </li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+              <div class="icon-row">
+                <a href="https://gitlab.com/ngua" target="_blank"><i class="fab fa-lg fa-gitlab"></i></a>
+                <a href="mailto:rory.hayford@protonmail.com"></a><i class="fas fa-2x fa-envelope"></i>
+              </div>
+          </ul>
+          <h3>Rory Tyler Hayford</h3>
+          <p>TODO</p>
+        </div>
+      </div>
+      <main id="main" role="main">
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit-icons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/brands.min.js" integrity="sha256-z0T3r+4uTjAkB5CHxybF9RQwAzHEdFB5+hJe/pGAcPg=" crossorigin="anonymous"></script>
+  </body>
+</html>

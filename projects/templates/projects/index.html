@@ -1,0 +1,34 @@
+{% extends "projects/base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="uk-section">
+  <div class="uk-container">
+    <h1 class="index-header">
+      Projects
+    </h1>
+    <hr>
+    <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+      {% for project in projects %}
+      <div>
+        <div class="uk-card uk-card-small uk-card-default uk-card-body">
+          <div class="uk-card-media-top">
+            <img src="{{ project.picture.url }}" height="200px" width="200px" alt="">
+            <hr>
+          </div>
+          <div class="uk-card-body">
+            <h3 class="uk-card-title">{{ project.name }}</h3>
+            {% for category in project.categories %}
+            <p class="uk-text-meta">{{ category }}</p>
+            {% endfor %}
+            <p>{{ project.description|safe }}</p>
+            {% for technology in project.technologies %}
+            <span class="uk-label muted">{{ technology }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

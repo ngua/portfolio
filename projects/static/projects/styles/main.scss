@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+$screen-lg-min: 992px;
+$nav-left-offset: 260px;
+$blue-grey: #506f8e;
+
+@mixin title-font {
+  font-family: 'Merriweather', serif;
+}
+
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+#top-nav {
+  @include lg {
+    margin-left: 300px;
+  }
+}
+
+#left-nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #222;
+  width: $nav-left-offset;
+  z-index: 2;
+  transition: height 0.3s ease-out;
+}
+
+.content-box {
+  padding: 10px;
+  position: fixed;
+  top: 30%;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  max-width: 15%;
+  max-height: 90%;
+
+  hr {
+    max-width: 10%;
+  }
+}
+
+.title {
+  font-size: 50px;
+  max-width: 90%;
+  overflow-wrap: break-word;
+  white-space: normal;
+
+  @include title-font;
+}
+
+.index-header {
+  @include title-font;
+}
+
+.icon-row {
+  margin-bottom: 25px;
+
+  a {
+    margin: 5px;
+  }
+}
+
+.muted {
+  background-color: $blue-grey;
+}
