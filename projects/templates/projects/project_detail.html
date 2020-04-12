@@ -1,0 +1,46 @@
+{% extends "projects/base.html" %}
+{% load static %}
+{% block title %}Projects | {{ project.name }}{% endblock %}
+{% block content %}
+<section class="uk-section uk-section-large uk-section-primary">
+  <div class="uk-container">
+    <h1>{{ project.name }}</h1>
+    <a href="{% if project.url %}{{ project.url }}{% else %}#{% endif %}" target="{% if project.url %}_blank{% endif %}"><i class="fab fa-lg fa-gitlab uk-text-muted"></i></a>
+    <hr>
+    <div class="uk-child-width-1-3@m" uk-grid>
+      <div>
+        <h4 class="uk-header uk-margin-remove-bottom">Description</h4>
+        {{ project.description | safe }}
+      </div>
+      <div>
+        <h4 class="uk-header uk-margin-remove-bottom">Technologies</h4>
+        <ul class="uk-list">
+          {% for technology in project.technologies %}
+          <li><p>{{ technology }}</p></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <img data-src="{{ project.picture.url }}" height=500 width=500 alt="" uk-img>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="uk-section uk-section-large uk-section-muted">
+  <div class="left-offset uk-position-relative uk-visible-toggle uk-dark" tabindex="-1" uk-slider>
+    <ul class="uk-slider-items uk-grid">
+      {% for screenshot in project.screenshot_set.all %}
+      <div class="uk-panel">
+        <li class="uk-width-5-6">
+          <img data-src="{{ screenshot.picture.url }}" alt="" height=600px width=600px uk-img>
+        </li>
+      </div>
+      {% endfor %}
+    </ul>
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+  </div>
+  <div class="uk-position-relative uk-visible-toggle uk-dark" tabindex="-1">
+</section>
+{% endblock %}

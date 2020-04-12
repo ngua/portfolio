@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:300&display=swap');
 
 $screen-lg-min: 992px;
 $nav-left-offset: 260px;
@@ -6,6 +7,10 @@ $blue-grey: #506f8e;
 
 @mixin title-font {
   font-family: 'Merriweather', serif;
+}
+
+@mixin subtitle-font {
+  font-family: 'Source Code Pro', sans-serif;
 }
 
 @mixin lg {
@@ -34,7 +39,7 @@ $blue-grey: #506f8e;
 }
 
 .content-box {
-  padding: 10px;
+  padding: 18px;
   position: fixed;
   top: 30%;
   bottom: 50%;
@@ -57,10 +62,6 @@ $blue-grey: #506f8e;
   @include title-font;
 }
 
-.index-header {
-  @include title-font;
-}
-
 .icon-row {
   margin-bottom: 25px;
 
@@ -71,4 +72,26 @@ $blue-grey: #506f8e;
 
 .muted {
   background-color: $blue-grey;
+}
+
+.left-offset {
+  @include lg {
+    margin-left: $nav-left-offset;
+  }
+}
+
+.index-link {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.index-header {
+  font-size: 40px;
+
+  @include subtitle-font;
+
+  @include lg {
+    font-size: 80px;
+  }
 }

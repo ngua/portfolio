@@ -13,49 +13,61 @@
   </head>
   <body>
     <div>
-      <nav class="uk-background-secondary" uk-navbar>
-        <div id="top-nav" class="uk-navbar-left uk-light">
-          <ul class="uk-navbar-nav">
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-        <div class="uk-navbar-right">
-          <a class="uk-navbar-toggle uk-navbar-item uk-hidden@m uk-visible@s" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
-        </div>
-      </nav>
+      <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+        <nav class="uk-background-secondary " uk-navbar>
+          <div id="top-nav" class="uk-navbar-left uk-light">
+            <ul class="uk-navbar-nav">
+              <li><a href="{% url 'index' %}">
+                  <span class="uk-icon" data-uk-icon="icon: home"></span>
+                </a></li>
+                <li><a href="{% url 'projects' %}">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Bio</a></li>
+            </ul>
+          </div>
+          <div class="uk-navbar-right">
+            <a class="uk-navbar-toggle uk-navbar-item uk-hidden@m" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
+          </div>
+        </nav>
+      </div>
       <div id="left-nav" class="uk-light uk-visible@l">
         <div class="content-box">
           <div class="title">Rory Tyler Hayford</div>
-          <small class="uk-text-muted">Full-stack web developer</small>
+          <small class="uk-text-muted">Full-stack Web Developer</small>
           <hr>
           <ul class="uk-nav uk-nav-default">
             <li>
               <div class="icon-row">
                 <a href="https://gitlab.com/ngua" target="_blank"><i class="fab fa-2x fa-gitlab"></i></a>
+                <a href="#"><i class="fab fa-2x fa-github"></i></a>
                 <a href="mailto:rory.hayford@protonmail.com"><i class="fas fa-2x fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-2x fa-linkedin"></i></a>
               </div>
             </li>
-            <li><a href="#">Portfolio</a></li>
+            <li><a href="{% url 'projects' %}">Portfolio</a></li>
             <li><a href="#">Contact</a></li>
+            <li><a href="#">Bio</a></li>
           </ul>
         </div>
       </div>
       <div id="offcanvas-nav" data-uk-offcanvas="flip: true; overlay: true" class="uk-offcanvas">
         <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
           <button class="uk-offcanvas-close" type="button" uk-close></button>
-          </button>
           <ul class="uk-nav uk-nav-default">
+            <li>
               <a href="{% url 'index' %}">
                 <span class="uk-icon" data-uk-icon="icon: home"></span>
               </a>
             </li>
-            <li><a href="#">Portfolio</a></li>
+            <li><a href="{% url 'projects' %}">Portfolio</a></li>
             <li><a href="#">Contact</a></li>
-              <div class="icon-row">
-                <a href="https://gitlab.com/ngua" target="_blank"><i class="fab fa-lg fa-gitlab"></i></a>
-                <a href="mailto:rory.hayford@protonmail.com"></a><i class="fas fa-2x fa-envelope"></i>
-              </div>
+            <li><a href="#">Bio</a></li>
+            <div class="icon-row">
+              <a href="https://gitlab.com/ngua" target="_blank"><i class="fab fa-lg fa-gitlab"></i></a>
+              <a href="#"><i class="fab fa-lg fa-github"></i></a>
+              <a href="mailto:rory.hayford@protonmail.com"></a><i class="fas fa-lg fa-envelope"></i>
+              <a href="#"><i class="fab fa-lg fa-linkedin"></i></a>
+            </div>
           </ul>
           <h3>Rory Tyler Hayford</h3>
           <p>TODO</p>
