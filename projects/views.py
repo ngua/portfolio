@@ -14,7 +14,7 @@ def index(request):
             'warning': messages.warning,
             'error': messages.error
         }.get(level)(request, message)
-    return render(request, 'projects/index.html')
+    return render(request, 'index.html')
 
 
 class ProjectList(ListView):

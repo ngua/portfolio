@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',
-    'ckeditor',
     'honeypot',
     'widget_tweaks',
     'phonenumber_field',

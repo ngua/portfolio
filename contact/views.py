@@ -10,7 +10,6 @@ from .forms import ContactForm
 class JsonResponseMixin:
     def form_invalid(self, form):
         response = super().form_invalid(form)
-        print(self.request.is_ajax())
         if self.request.is_ajax():
             return JsonResponse(
                 {

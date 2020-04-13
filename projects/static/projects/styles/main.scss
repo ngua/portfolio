@@ -143,3 +143,12 @@ $muted-red: #fd6783;
 .close {
   opacity: .8;
 }
+
+pre {
+  color: inherit;
+  background: inherit;
+}
+
+.titles {
+  @include subtitle-font;
+}

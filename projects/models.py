@@ -5,7 +5,6 @@ from django.conf import settings
 from django.utils.text import slugify
 from django.dispatch import receiver
 from django.db.models import signals
-from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
@@ -23,7 +22,7 @@ class Category(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    description = RichTextField()
+    description = models.TextField()
     picture = models.ImageField(
         default='default.png', upload_to=settings.PROJECT_PIC_PATH
     )
