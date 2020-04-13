@@ -8,8 +8,7 @@ ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /app/requirements.txt
 
-RUN apk update \
-        && apk add build-base \
+RUN apk add build-base \
         && apk add gcc postgresql-dev python3-dev musl-dev jpeg-dev zlib-dev \
         && pip install --upgrade pip
 RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt

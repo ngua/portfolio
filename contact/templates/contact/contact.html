@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static widget_tweaks honeypot %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<section class="uk-section uk-section-small tertiary" uk-height-viewport>
+  <div class="uk-container uk-light">
+    <div class="uk-grid uk-child-width-1-2@m" uk-grid>
+      <div class="uk-flex uk-flex-middle">
+        <div>
+          <h1>Contact Me</h1>
+          <p class="uk-text-muted">Get in touch</p>
+        </div>
+      </div>
+      <div>
+        <form id="form" class="uk-form uk-form-width-large@m" action="/contact/" method="post" novalidate>{% csrf_token %}
+          <div class="uk-margin uk-width-1-1">
+            {% render_field form.name class+="uk-input" placeholder=form.name.label %}
+            <span id="{{ form.name.html_name }}_error" class="error">
+              {% if form.name.errors %}
+              {% for error in form.name.errors %}
+              {{ error }}
+              {% endfor %}
+              {% endif %}
+            </span>
+          </div>
+          {% render_honeypot_field %}
+          <div class="uk-margin uk-width-1-1">
+            {% render_field form.phone class+="uk-input" placeholder=form.phone.label %}
+            <span id="{{ form.phone.html_name }}_error" class="error">
+              {% if form.phone.errors %}
+              {% for error in form.phone.errors %}
+              {{ error }}
+              {% endfor %}
+              {% endif %}
+            </span>
+          </div>
+          <div class="uk-margin uk-width-1-1">
+            {% render_field form.email class+="uk-input" placeholder=form.email.label %}
+            <span id="{{ form.email.html_name }}_error" class="error">
+              {% if form.email.errors %}
+              {% for error in form.email.errors %}
+              {{ error }}
+              {% endfor %}
+              {% endif %}
+            </span>
+          </div>
+          <div class="uk-margin uk-width-1-1">
+            {% render_field form.message class+="message uk-textarea" placeholder=form.message.label %}
+            <span id="{{ form.message.html_name }}_error" class="error">
+              {% if form.message.errors %}
+              {% for error in form.message.errors %}
+              {{ error }}
+              {% endfor %}
+              {% endif %}
+            </span>
+          </div>
+          <input id="submit" type="submit" class="uk-button uk-button-default" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block body_js %}
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+<script src="{% static 'contact/js/contact.js' %}"></script>
+{% endblock %}

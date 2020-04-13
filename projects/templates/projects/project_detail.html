@@ -1,8 +1,8 @@
-{% extends "projects/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% block title %}Projects | {{ project.name }}{% endblock %}
 {% block content %}
-<section class="uk-section uk-section-large uk-section-primary">
+<section class="uk-section uk-section-large tertiary">
   <div class="uk-container">
     <h1>{{ project.name }}</h1>
     <a href="{% if project.url %}{{ project.url }}{% else %}#{% endif %}" target="{% if project.url %}_blank{% endif %}"><i class="fab fa-lg fa-gitlab uk-text-muted"></i></a>

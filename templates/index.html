@@ -5,8 +5,8 @@
 <div class="home left-offset uk-light uk-background-norepeat uk-background-cover uk-background-center-center uk-cover-container uk-background-secondary" uk-height-viewport>
   <img data-src="{% static 'projects/img/index_cover.jpg' %}" class="uk-animation-ken-burns" alt="" uk-cover uk-img>
   <div class="uk-flex uk-flex-left uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative">
-    <div class="uk-overlay-primary uk-position-cover"></div>
-    <div class="uk-overlay uk-position-center">
+    <div class="uk-overlay-primary uk-position-cover" uk-height-viewport></div>
+    <div class="uk-overlay uk-margin-large uk-position-left">
       <div class="uk-container uk-container-small uk-flex-auto uk-animation-fade" style="margin-bottom: 350px;">
         <h1 class="index-header uk-heading-primary">Rory Tyler Hayford</h1>
         <p class="uk-text-muted">Full-stack Web Developer</p>
@@ -14,7 +14,7 @@
         <div>
           <a href="{% url 'projects' %}" class="uk-margin-top uk-button uk-button-default uk-button-large uk-width-1-4@m uk-width-auto@s">Portfolio</a>
           <a href="#" class="uk-margin-top uk-button uk-button-default uk-button-large uk-width-1-4@m uk-width-auto@s">Bio</a>
-          <a href="#" class="uk-margin-top uk-button uk-button-default uk-button-large uk-width-1-4@m uk-width-auto@s">Contact</a>
+          <a href="{% url 'contact' %}" class="uk-margin-top uk-button uk-button-default uk-button-large uk-width-1-4@m uk-width-auto@s">Contact</a>
         </div>
       </div>
     </div>

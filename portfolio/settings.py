@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,7 +41,10 @@ INSTALLED_APPS = [
     'compressor',
     'ckeditor',
     'honeypot',
-    'projects.apps.ProjectsConfig'
+    'widget_tweaks',
+    'phonenumber_field',
+    'projects.apps.ProjectsConfig',
+    'contact.apps.ContactConfig',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +62,7 @@ ROOT_URLCONF = 'portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -164,3 +168,10 @@ PROJECT_PIC_PATH = 'projects'
 # Honeypot settings
 
 HONEYPOT_FIELD_NAME = 'phonenumber'
+
+# Messages settings
+
+MESSAGE_TAGS = {
+    messages.SUCCESS: 'success'
+}
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'

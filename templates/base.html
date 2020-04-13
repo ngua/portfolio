@@ -21,7 +21,7 @@
                   <span class="uk-icon" data-uk-icon="icon: home"></span>
                 </a></li>
                 <li><a href="{% url 'projects' %}">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
                 <li><a href="#">Bio</a></li>
             </ul>
           </div>
@@ -33,7 +33,7 @@
       <div id="left-nav" class="uk-light uk-visible@l">
         <div class="content-box">
           <div class="title"><a class="index-link" href="{% url 'index' %}">Rory Tyler Hayford</a></div>
-          <small class="uk-text-muted">Full-stack Web Developer</small>
+          <!-- <small class="uk-text-muted">Full-stack Web Developer</small> -->
           <hr>
           <ul class="uk-nav uk-nav-default">
             <li>
@@ -45,7 +45,7 @@
               </div>
             </li>
             <li><a href="{% url 'projects' %}">Portfolio</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
             <li><a href="#">Bio</a></li>
           </ul>
         </div>
@@ -60,7 +60,7 @@
               </a>
             </li>
             <li><a href="{% url 'projects' %}">Portfolio</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
             <li><a href="#">Bio</a></li>
             <div class="icon-row">
               <a href="https://gitlab.com/ngua" target="_blank"><i class="fab fa-lg fa-gitlab"></i></a>
@@ -74,12 +74,25 @@
         </div>
       </div>
       <main id="main" role="main">
-        {% block content %}{% endblock %}
+        <div id="messages">
+          {% if messages %}
+          <div class="">
+            {% for message in messages %}
+            <div class=" uk-margin-remove-bottom {% if message.tags %} {{ message.tags }}{% endif %} alerts left-offset" uk-alert>
+              <a class="uk-alert-close close" uk-close></a>
+              <div class="">{{ message }}</div>
+            </div>
+            {% endfor %}
+            {% endif %}
+          </div>
+          {% block content %}{% endblock %}
+        </div>
       </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/js/uikit-icons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/brands.min.js" integrity="sha256-z0T3r+4uTjAkB5CHxybF9RQwAzHEdFB5+hJe/pGAcPg=" crossorigin="anonymous"></script>
+    {% block body_js %}{% endblock %}
   </body>
 </html>
