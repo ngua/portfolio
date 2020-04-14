@@ -9,8 +9,6 @@ django-compressor==2.4
 django-honeypot==0.8.0
 django-js-asset==1.2.2
 django-libsass==0.8
-django-material==1.6.3
-django-phonenumber-field==4.0.0
 django-redis==4.11.0
 django-widget-tweaks==1.4.8
 kombu==4.6.8
