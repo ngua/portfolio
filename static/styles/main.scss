@@ -5,6 +5,10 @@ $screen-lg-min: 992px;
 $nav-left-offset: 260px;
 $blue-grey: #506f8e;
 $muted-red: #fd6783;
+$success: #78b087;
+$info: #a6bcd8;
+$warning:#d8d5a6;
+$error: #f66464;
 
 @mixin message($bg, $fg) {
   background-color: $bg;
@@ -124,19 +128,19 @@ $muted-red: #fd6783;
   opacity: 1;
 
   &.success {
-    @include message(#a6d8b4, white);
+    @include message($success, white);
   }
 
   &.info {
-    @include message(#a6bcd8, white);
+    @include message($info , white);
   }
 
   &.warning {
-    @include message(#d8d5a6, dimgray);
+    @include message($warning, dimgray);
   }
 
   &.error {
-    @include message(#f66464, #dedede);
+    @include message($error, #dedede);
   }
 }
 

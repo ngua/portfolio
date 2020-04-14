@@ -20,12 +20,14 @@ class JsonResponseMixin:
         return response
 
     def form_valid(self, form):
+        form.save()
+        form.send_mail()
         response = super().form_valid(form)
-        if self.request.is_ajax():
-            self.request.session['message'] = """
+        self.request.session['message'] = """
 Thanks for reaching out! I'll be in touch soon
-            """
-            self.request.session['level'] = 'success'
+        """
+        self.request.session['level'] = 'success'
+        if self.request.is_ajax():
             return JsonResponse({
                 'url': self.success_url,
                 'success': True

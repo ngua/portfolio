@@ -13,3 +13,7 @@ class Contact(models.Model):
     )
     email = models.EmailField()
     message = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.name} ({self.email}), {self.date.strftime("%D %H:%M")}'
