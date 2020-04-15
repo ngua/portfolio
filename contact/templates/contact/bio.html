@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Bio{% endblock %}
+{% block content %}
+<section class="left-offset uk-section tertiary" uk-height-viewport>
+  <div class="uk-container uk-container-small uk-light uk-padding-large">
+    <div class="uk-grid uk-child-width-1-1@m uk-animation-fade" uk-grid>
+      <div class="uk-flex uk-flex-middle">
+        <article class="uk-align-right">
+          <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              <img id="bio-pic" class="" src="{% static 'img/pic.jpg' %}">
+            </div>
+            <div class="uk-width-expand">
+              <h1 class="titles">Rory Tyler Hayford</h1>
+              <p class="uk-text-lead uk-text-muted">Full-stack Python Developer</p>
+              <p class="uk-heading-line uk-text-center uk-text-meta">
+                <span>
+                Experience
+                </span>
+              </p>
+              <p>I'm a proficient full-stack developer with experience in Django, Flask,
+                and a number of front-end technologies, including Javascript (ES6+), Reactjs, SCSS, and popular CSS frameworks.
+                I have experience in application deployment using tools such as nginx, PostgresSQL, Docker, and more.</p>
+              <p>Beyond web applications, I also have experience in web-scraping and creating command-line interfaces.</p>
+              <p>I am an avid Linux user, which I not only use in headless production environments but also as my daily OS.</p>
+              <p class="uk-heading-line uk-text-center uk-text-meta">
+                <span>
+                Interests
+                </span>
+              </p>
+              <p>In addition to learning new programming languages and development tools, I enjoy learning natural languages.</p>
+              <small class="uk-article-meta">I use Arch, btw.</small>
+            </div>
+          </div>
+          <hr>
+
+          <div class="uk-grid-small uk-child-width-auto" uk-grid>
+            <div>
+              <a class="uk-button uk-button-text uk-margin-right" href="{% url 'contact' %}">Get in touch</a>
+            </div>
+            <div>
+              <a class="uk-button uk-button-text uk-margin-right" href="{% url 'projects' %}">Check out my work</a>
+            </div>
+            <div>
+              <a class="uk-button uk-button-text uk-margin-right" href="https://gitlab.com/ngua/dotfiles">Look at my dotfiles</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

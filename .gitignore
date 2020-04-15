@@ -4,3 +4,4 @@ assets/*
 media/projects/*
 .vim/
 .env*
+static/img/*

@@ -140,7 +140,7 @@ $error: #f66464;
   }
 
   &.error {
-    @include message($error, #dedede);
+    @include message($error, gainsboro);
   }
 }
 
@@ -155,4 +155,11 @@ pre {
 
 .titles {
   @include subtitle-font;
+}
+
+#bio-pic {
+  border-radius: 50%;
+  border: 1px solid darkgray;
+  filter: grayscale(50%);
+  opacity: .7;
 }

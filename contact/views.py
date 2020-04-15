@@ -3,8 +3,13 @@ from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.vary import vary_on_headers
 from django.conf import settings
+from django.shortcuts import render
 from honeypot.decorators import check_honeypot
 from .forms import ContactForm
+
+
+def bio(request):
+    return render(request, 'contact/bio.html')
 
 
 class JsonResponseMixin:
