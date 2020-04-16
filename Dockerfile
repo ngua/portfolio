@@ -20,6 +20,7 @@ RUN mkdir -p /var/run/celery
 RUN addgroup app \
         && adduser --disabled-password --gecos "" --ingroup app --no-create-home app \
         && chown app:app /var/run/celery
+RUN touch /var/run/celery/celeryworker.pid
 
 USER app
 

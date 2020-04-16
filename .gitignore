@@ -4,3 +4,5 @@ media/projects/*
 .vim/
 .env*
 static/*
+redis/redis.conf
+assets/img/*

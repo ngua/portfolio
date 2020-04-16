@@ -2,10 +2,19 @@
 {% load static md_extras %}
 {% block title %}Projects | {{ project.name }}{% endblock %}
 {% block content %}
+{% for screenshot in project.screenshot_set.all %}
+<div class="uk-flex-top" id="modal_{{ screenshot.pk }}" uk-modal>
+  <div class="modal uk-modal-dialog uk-modal-body uk-width-auto uk-margin-auto-vertical">
+    <button class="uk-modal-close-outside" type="button" uk-close></button>
+    <img src="{{ screenshot.picture.url }}" alt="">
+  </div>
+</div>
+{% endfor %}
 <section class="uk-section uk-section-large tertiary">
   <div class="uk-container uk-light">
     <h1 class="titles">{{ project.name }}</h1>
-    <a href="{% if project.url %}{{ project.url }}{% else %}#{% endif %}" target="{% if project.url %}_blank{% endif %}"><i class="fab fa-lg fa-gitlab uk-text-muted"></i></a>
+    <a href="{% if project.repo %}{{ project.repo }}{% else %}#{% endif %}" target="{% if project.url %}_blank{% endif %}"><i class="fab fa-lg fa-gitlab uk-text-muted"></i></a>
+    {% if project.url %}<a href="{{ project.url }}" target="_blank"><i class="fas fa-lg fa-link uk-text-muted"></i></a>{% endif %}
     <hr>
     <div class="uk-child-width-1-3@m" uk-grid>
       <div>
@@ -30,9 +39,9 @@
   <div class="left-offset uk-position-relative uk-visible-toggle uk-dark" tabindex="-1" uk-slider>
     <ul class="uk-slider-items uk-grid">
       {% for screenshot in project.screenshot_set.all %}
-      <div class="uk-panel">
+      <div class="slider uk-panel" uk-toggle="target: #modal_{{ screenshot.pk }}">
         <li class="uk-width-5-6">
-          <img data-src="{{ screenshot.picture.url }}" alt="" height=600px width=600px uk-img>
+          <img data-src="{{ screenshot.picture.url }}" alt="" height=600 width=600  uk-img>
         </li>
       </div>
       {% endfor %}
@@ -41,6 +50,5 @@
     <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
     <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
   </div>
-  <div class="uk-position-relative uk-visible-toggle uk-dark" tabindex="-1">
 </section>
 {% endblock %}

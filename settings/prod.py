@@ -42,3 +42,8 @@ CACHES = {
 
 CELERY_BROKER_URL = REDIS_URI
 CELERY_RESULT_BACKEND = REDIS_URI
+
+# Static settings
+
+STATIC_ROOT = '/staticfiles/'
+MEDIA_ROOT = '/mediafiles/'

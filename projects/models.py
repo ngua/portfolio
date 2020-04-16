@@ -29,6 +29,7 @@ class Project(models.Model):
     categories = models.ManyToManyField(Category)
     technologies = ArrayField(models.CharField(max_length=100))
     slug = models.SlugField(editable=False)
+    repo = models.URLField(blank=True)
     url = models.URLField(blank=True)
 
     def save(self, *args, **kwargs):

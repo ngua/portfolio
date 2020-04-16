@@ -1,13 +1,19 @@
 from django.views.generic import CreateView
 from django.http import JsonResponse
 from django.utils.decorators import method_decorator
+from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.views.decorators.vary import vary_on_headers
+from django.views.decorators.cache import cache_page
 from django.conf import settings
 from django.shortcuts import render
 from honeypot.decorators import check_honeypot
 from .forms import ContactForm
 
 
+CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
+
+
+@cache_page(CACHE_TTL)
 def bio(request):
     return render(request, 'contact/bio.html')
 
@@ -45,6 +51,7 @@ Thanks for reaching out! I'll be in touch soon
     name='dispatch'
 )
 @method_decorator(vary_on_headers('X-Requested-With'), name='dispatch')
+@method_decorator(cache_page(CACHE_TTL), name='dispatch')
 class ContactView(JsonResponseMixin, CreateView):
     form_class = ContactForm
     template_name = 'contact/contact.html'
