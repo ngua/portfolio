@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+{{ status }}
+{% endblock %}
+{% block content %}
+<section class="left-offset uk-section uk-section-muted" uk-height-viewport>
+  <div class="uk-container uk-container-large uk-background-secondary uk-light uk-padding-large">
+    <div class="uk-grid uk-child-width-1-2@m" uk-grid>
+      <div>
+        <h1 class="uk-text-muted">{{ status }}</h1>
+        <h1>{% block status %}{% endblock%}</h1>
+      </div>
+      <div>
+      {% block message %}
+      {% endblock %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

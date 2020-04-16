@@ -1,7 +1,6 @@
 __pycache__/
 *.py[cod]
-assets/*
 media/projects/*
 .vim/
 .env*
-static/img/*
+static/*

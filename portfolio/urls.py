@@ -25,6 +25,11 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 admin.site.site_header = settings.ADMIN_SITE_HEADER
 admin.site.site_title = settings.ADMIN_SITE_TITLE
+
+handler403 = 'projects.views.handler_403'
+handler404 = 'projects.views.handler_404'
+handler500 = 'projects.views.handler_500'
