@@ -4,9 +4,6 @@ services:
   web:
     build: .
     image: portfolio
-    depends_on:
-      - db
-      - redis
   celery:
     image: portfolio
     command: >
