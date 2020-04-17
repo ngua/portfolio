@@ -1,15 +1,16 @@
-version: '3.7'
+version: '3'
 
 services:
   web:
     build:
       context: .
       dockerfile: Dockerfile.prod
+    privileged: true
     image: portfolio
     command: gunicorn portfolio.wsgi:application --bind 0.0.0.0:8000 --workers=2
     volumes:
-      - /var/web/portfolio/static:/staticfiles
-      - /var/web/portfolio/media:/mediafiles
+      - static_volume:/staticfiles
+      - media_volume:/mediafiles
     expose:
       - 8000
     env_file:
@@ -40,6 +41,13 @@ services:
 
 volumes:
   redis_data:
+  static_volume:
+    external:
+      portfolio_static
+  media_volume:
+    external:
+      portfolio_media
+
 
 networks:
   app:
