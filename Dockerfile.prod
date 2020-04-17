@@ -9,10 +9,6 @@ ENV PYTHONUNBUFFERED 1
 
 RUN apk add build-base gcc postgresql-dev python3-dev musl-dev jpeg-dev zlib-dev
 RUN pip install --upgrade pip
-RUN pip install flake8
-
-COPY . /app
-RUN flake8 --ignore=E501,F401 --exclude=settings/ /app
 
 COPY ./requirements /app/requirements
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /app/wheels -r requirements/prod.txt
