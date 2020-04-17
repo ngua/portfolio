@@ -43,10 +43,10 @@ volumes:
   redis_data:
   static_volume:
     external:
-      portfolio_static
+      name: portfolio_static
   media_volume:
     external:
-      portfolio_media
+      name: portfolio_media
 
 
 networks:
