@@ -20,7 +20,8 @@ function submitForm(e) {
     body: formData,
     headers: new Headers({
       'X-CSRFToken': csrf,
-      'X-Requested-With': 'XMLHttpRequest'
+      'X-Requested-With': 'XMLHttpRequest',
+      'credentials': include
     })
   }).then(response => response.json())
     .then(data => {
