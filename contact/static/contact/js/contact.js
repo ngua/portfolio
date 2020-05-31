@@ -39,7 +39,6 @@ function submitForm(e) {
 
 function displayErrors(id, errors) {
   const errorContainer = $(`${id}_error`);
-  console.log(errorContainer)
   errors.forEach(error => appendError(errorContainer, error));
 }
 
