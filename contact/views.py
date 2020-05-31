@@ -1,5 +1,6 @@
 from django.views.generic import CreateView
 from django.http import JsonResponse
+from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.views.decorators.vary import vary_on_headers
@@ -34,9 +35,9 @@ class JsonResponseMixin:
         form.save()
         form.send_mail()
         response = super().form_valid(form)
-        self.request.session['message'] = """
-Thanks for reaching out! I'll be in touch soon
-        """
+        self.request.session['message'] = (
+            "Thanks for reaching out! I'll be in touch soon"
+        )
         self.request.session['level'] = 'success'
         if self.request.is_ajax():
             return JsonResponse({
@@ -51,8 +52,7 @@ Thanks for reaching out! I'll be in touch soon
     name='dispatch'
 )
 @method_decorator(vary_on_headers('X-Requested-With'), name='dispatch')
-@method_decorator(cache_page(CACHE_TTL), name='dispatch')
 class ContactView(JsonResponseMixin, CreateView):
     form_class = ContactForm
     template_name = 'contact/contact.html'
-    success_url = '/'
+    success_url = reverse_lazy('index')
